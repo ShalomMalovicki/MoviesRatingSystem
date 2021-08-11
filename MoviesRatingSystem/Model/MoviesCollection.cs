@@ -33,7 +33,8 @@ namespace MoviesRatingSystem.Model
         {
             foreach (dynamic item in array)
             {
-              
+                // for each token we create & add new Movie instance to the list
+                List.Add(new Movie(item));
             }
         }
 
