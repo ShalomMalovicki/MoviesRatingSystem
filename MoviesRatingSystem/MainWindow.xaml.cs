@@ -32,7 +32,7 @@ namespace MoviesRatingSystem
 
         private void SetCollection()
         {
-            dataGrid_MoviesCollection.ItemsSource = mainViewModel.MoviesCollection.List;
+            dataGrid_MoviesCollection.ItemsSource = mainViewModel.MoviesCollection.MovieList;
             //dataGrid_MoviesCollection.AutoGenerateColumns = false;
             //dataGrid_MoviesCollection.Columns.Add(new GridNumericColumn() { MappingName = "SumAmount", HeaderText = "Bid Total", NumberDecimalDigits = 0, Width = 100, TextAlignment = TextAlignment.Center });
             //dataGrid_MoviesCollection.Columns.Add(new GridNumericColumn() { MappingName = "Amount", HeaderText = "Bid Size", NumberDecimalDigits = 0, Width = 100, TextAlignment = TextAlignment.Center });
