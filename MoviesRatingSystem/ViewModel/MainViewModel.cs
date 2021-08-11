@@ -1,5 +1,7 @@
-﻿using MoviesRatingSystem.Model;
+﻿using MoviesRatingSystem.Data;
+using MoviesRatingSystem.Model;
 using MoviesRatingSystem.Resources;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +13,8 @@ namespace MoviesRatingSystem.ViewModel
     class MainViewModel : OnePropertyChanged
     {
         #region Private Fields
+        MovieRestApi api;
+
         private bool serverStatus;
         private DateTime lastReceive;
         private MoviesCollection moviesCollection;
@@ -20,6 +24,11 @@ namespace MoviesRatingSystem.ViewModel
         public MainViewModel()
         {
             moviesCollection = new MoviesCollection();
+            api = new MovieRestApi();
+
+            ServerStatus = true;
+            Initialization();
+            //Routine();
         }
         #endregion Ctor
 
@@ -30,6 +39,26 @@ namespace MoviesRatingSystem.ViewModel
         #endregion Properties
 
         #region Function
+        public void Initialization()
+        {
+            var r1 = api.GetMoviesDescrption().Result;
+            JArray array = JObject.Parse(r1);
+            MoviesCollection.Initialization(array);
+        }
+
+        public void Routine()
+        {
+            Task.Run(async () =>
+            {             
+                while (serverStatus)
+                {
+                    var r2 = api.GetOnlineVotes(lastReceive).Result;
+                    JArray array = JObject.Parse(r2);
+                    MoviesCollection.UpdateRoutine(array);
+                    await Task.Delay(1000);
+                }
+            });
+        }
         #endregion Function
     }
 }

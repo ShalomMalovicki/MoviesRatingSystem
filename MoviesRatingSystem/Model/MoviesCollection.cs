@@ -1,4 +1,5 @@
 ﻿using MoviesRatingSystem.Resources;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,10 +25,25 @@ namespace MoviesRatingSystem.Model
 
         #region Properties
         public ObservableCollection<Movie> List { get => list; set => SetField(ref list , value); }
-        public int MostVotes { get => mostVotes; set => SetField(ref mostVotes , value); }      
+        public int MostVotes { get => mostVotes; set => SetField(ref mostVotes , value); }
         #endregion Properties
 
         #region Function
+        public void Initialization(JArray array)
+        {
+            foreach (dynamic item in array)
+            {
+              
+            }
+        }
+
+        public void UpdateRoutine(JArray array)
+        {
+            foreach (dynamic item in array)
+            {
+              
+            }
+        }
         #endregion Function
     }
 }
