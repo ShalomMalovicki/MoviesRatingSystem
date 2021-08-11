@@ -19,12 +19,13 @@ namespace MoviesRatingSystem_Test
 
         private static async Task RestTests(MovieRestApi api)
         {         
-            var dateStart = DateTime.UtcNow.AddHours(-24);
-            var dateEnd = DateTime.UtcNow;
+            var lastReceived = DateTime.Now.AddSeconds(-60);
+            var lastReceived2 = DateTime.Now;
          
-            var r1 = api.GetMoviesDescrption().Result;
-         
-            Console.WriteLine($"\n\n{r1}");
+            //var r1 = api.GetMoviesDescrption().Result;
+            var r2 = api.GetOnlineVotes(lastReceived).Result; 
+
+            Console.WriteLine($"\n\n{r2}");
         }
 
     }

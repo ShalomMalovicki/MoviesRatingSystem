@@ -29,6 +29,15 @@ namespace MoviesRatingSystem.Data
             return ParseResponce(result);
         }
 
+        public async Task<dynamic> GetOnlineVotes(DateTime lastReceived)
+        {
+            var resultString = $"GetOnlineVotes?lastReceived={lastReceived}";
+
+            var result = await CallAsync(HttpMethod.Get, resultString);
+
+            return ParseResponce(result);
+        }
+
         private async Task<string> CallAsync(HttpMethod method, string endpoint, string body = null)
         {
             var request = new HttpRequestMessage(method, endpoint);
