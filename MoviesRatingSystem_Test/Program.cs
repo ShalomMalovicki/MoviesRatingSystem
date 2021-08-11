@@ -1,4 +1,5 @@
 ﻿using MoviesRatingSystem.Data;
+using MoviesRatingSystem.Resources;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,12 @@ namespace MoviesRatingSystem_Test
 
         private static async Task RestTests(MovieRestApi api)
         {         
-            var lastReceived = DateTime.Now.AddSeconds(-60);
+            var lastReceived = DateTime.Now.AddSeconds(-1);
             var lastReceived2 = DateTime.Now;
          
             //var r1 = api.GetMoviesDescrption().Result;
-            var r2 = api.GetOnlineVotes(lastReceived).Result; 
+            var r2 = api.GetOnlineVotes(lastReceived).Result;
+            //var r3 = ConvertFunc.ConvertFromDateTime(lastReceived);
 
             Console.WriteLine($"\n\n{r2}");
         }

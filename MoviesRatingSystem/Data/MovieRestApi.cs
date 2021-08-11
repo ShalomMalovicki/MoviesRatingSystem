@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MoviesRatingSystem.Resources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -31,7 +32,7 @@ namespace MoviesRatingSystem.Data
 
         public async Task<dynamic> GetOnlineVotes(DateTime lastReceived)
         {
-            var resultString = $"GetOnlineVotes?lastReceived={lastReceived}";
+            var resultString = $"GetOnlineVotes?lastReceived={ConvertFunc.ConvertFromDateTime(lastReceived)}";
 
             var result = await CallAsync(HttpMethod.Get, resultString);
 
