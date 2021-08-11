@@ -46,7 +46,7 @@ namespace MoviesRatingSystem.Model
             });          
         }
 
-        public void UpdateRoutine(JArray array)
+        public DateTime UpdateRoutine(JArray array)
         {
             foreach (var item in array)
             {
@@ -60,9 +60,12 @@ namespace MoviesRatingSystem.Model
                 Vote checkExsit = votesList.Where(x=> x.ItemId == movie.MovieId).FirstOrDefault();
                 if (checkExsit != null)
                 {
-                    //movie.TotalVotes = votesList.Where(x => x.ItemId == movie.MovieId).Select();
+                    movie.TotalVotes = votesList.Where(x => x.ItemId == movie.MovieId).Sum(item => item.ItemCount);
+                    movie.LastUpdated = votesList.Where(x => x.ItemId == movie.MovieId).Max(item => item.GeneratedTime);
                 }
             }
+            MostVotes = movieList.Max(item => item.TotalVotes);
+            return movieList.Max(item => item.LastUpdated);
         }
         #endregion Function
     }

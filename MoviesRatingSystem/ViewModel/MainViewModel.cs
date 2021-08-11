@@ -38,8 +38,9 @@ namespace MoviesRatingSystem.ViewModel
         public void Start()
         {
             ServerStatus = true;
+            LastReceive = DateTime.Now.AddSeconds(-1);
             Initialization();
-            //Routine();
+            Routine();
         }
 
         public void Initialization()
@@ -56,13 +57,15 @@ namespace MoviesRatingSystem.ViewModel
         {
             Task.Run(async () =>
             {             
-                while (serverStatus)
+                do
                 {
-                    var r2 = api.GetOnlineVotes(lastReceive).Result;
-                    JArray array = JObject.Parse(r2);
-                    MoviesCollection.UpdateRoutine(array);
                     await Task.Delay(1000);
-                }
+                    var r2 = api.GetOnlineVotes(lastReceive).Result;
+                    JArray array = JArray.Parse(r2);
+                    if (array.Count > 0)
+                        LastReceive = MoviesCollection.UpdateRoutine(array);
+
+                } while (serverStatus) ;
             });
         }
         #endregion Function
