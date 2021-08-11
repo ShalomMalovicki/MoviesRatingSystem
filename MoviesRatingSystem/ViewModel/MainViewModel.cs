@@ -25,10 +25,6 @@ namespace MoviesRatingSystem.ViewModel
         {
             moviesCollection = new MoviesCollection();
             api = new MovieRestApi();
-
-            ServerStatus = true;
-            Initialization();
-            //Routine();
         }
         #endregion Ctor
 
@@ -39,6 +35,13 @@ namespace MoviesRatingSystem.ViewModel
         #endregion Properties
 
         #region Function
+        public void Start()
+        {
+            ServerStatus = true;
+            Initialization();
+            //Routine();
+        }
+
         public void Initialization()
         {
             var r1 = api.GetMoviesDescrption().Result;

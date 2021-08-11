@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:MoviesRatingSystem"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <!--<local:CustomRowStyleSelector x:Key="rowStyleSelector" />-->
+
+        <!--<Style x:Key="headerStyle" TargetType="DataGrid.ColumnHeaderStyle">
+            <Setter Property="FontWeight" Value="DemiBold" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>-->
+
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions >
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Style="{StaticResource BorderStyle}" Grid.Row="0" >
+            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+                <Button Command="{Binding Path=DataContext.Command,ElementName=Calculation}" Content="Disconnect" Margin="2" Padding="2" FontWeight="Bold"/>
+                <CheckBox Margin="4,5,4,0"  IsChecked="{Binding Path=ServerStatus, UpdateSourceTrigger=PropertyChanged }"  Content="Server Status" />
+                <TextBlock Margin="10,0,0,0" Padding="5" Text="Last receive data time - " TextAlignment="Center" />
+                <TextBox Text="{Binding Path=LastReceive, UpdateSourceTrigger=PropertyChanged, StringFormat=dd/MM/yyyy HH:mm:ss}"  TextAlignment="Center" />
+            </StackPanel>
+        </Border>
+
+        <DataGrid x:Name="dataGrid_MoviesCollection"  Grid.Row="1" FontWeight="SemiBold" FontSize="13"  />
+        <!--RowStyleSelector="{StaticResource rowStyleSelector}"  ColumnHeaderStyle="{StaticResource headerStyle }"-->
     </Grid>
 </Window>
