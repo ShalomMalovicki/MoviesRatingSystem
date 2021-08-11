@@ -13,10 +13,7 @@
             <Setter Property="FontWeight" Value="DemiBold" />
             <Setter Property="FontSize" Value="15" />
         </Style>-->
-        <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
-            <Setter Property="FontWeight" Value="DemiBold" />
-            <Setter Property="Background" Value="Red" />
-        </Style>
+
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions >
@@ -27,7 +24,7 @@
         <Border Style="{StaticResource BorderStyle}" Grid.Row="0" >
             <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
                 <Button Command="{Binding Path=DataContext.Command,ElementName=Calculation}" Content="Disconnect" Margin="2" Padding="2" FontWeight="Bold"/>
-                <CheckBox Margin="4,5,4,0"  IsChecked="{Binding Path=ServerStatus, UpdateSourceTrigger=PropertyChanged }"  Content="Server Status" Style="{StaticResource CheckBoxStyle}"/>
+                <CheckBox Margin="4,5,4,0"  IsChecked="{Binding Path=ServerStatus, UpdateSourceTrigger=PropertyChanged }"  Content="Server Status" />
                 <TextBlock Margin="10,0,0,0" Padding="5" Text="Last receive data time - " TextAlignment="Center" />
                 <TextBox Text="{Binding Path=LastReceive, UpdateSourceTrigger=PropertyChanged, StringFormat=dd/MM/yyyy HH:mm:ss}"  TextAlignment="Center" />
             </StackPanel>
