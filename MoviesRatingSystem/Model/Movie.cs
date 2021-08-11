@@ -33,6 +33,10 @@ namespace MoviesRatingSystem.Model
         #endregion Properties
 
         #region Function
+        public override string ToString()
+        {
+            return $"MovieId: {MovieId},\tMovieDescription: {MovieDescription},\tTotalVotes: {TotalVotes},\tLastUpdated: {LastUpdated}";
+        }
         #endregion Function
     }
 }

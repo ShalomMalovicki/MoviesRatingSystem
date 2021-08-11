@@ -30,7 +30,13 @@
             </StackPanel>
         </Border>
 
-        <DataGrid x:Name="dataGrid_MoviesCollection"  Grid.Row="1" FontWeight="SemiBold" FontSize="13"  />
+        <DataGrid x:Name="dataGrid_MoviesCollection"  Grid.Row="1" FontWeight="SemiBold" FontSize="13">
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Row_DoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
         <!--RowStyleSelector="{StaticResource rowStyleSelector}"  ColumnHeaderStyle="{StaticResource headerStyle }"-->
     </Grid>
 </Window>

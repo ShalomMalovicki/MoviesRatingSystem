@@ -1,4 +1,5 @@
-﻿using MoviesRatingSystem.ViewModel;
+﻿using MoviesRatingSystem.Model;
+using MoviesRatingSystem.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,5 +49,11 @@ namespace MoviesRatingSystem
             //});
         }
 
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DataGridRow row = sender as DataGridRow;
+            Movie movie = row.DataContext as Movie;
+            MessageBox.Show($"{movie}");
+        }
     }
 }
