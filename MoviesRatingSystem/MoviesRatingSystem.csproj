@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converter\BoolToObjectConverter.cs" />
     <Compile Include="Data\MovieRestApi.cs" />
     <Compile Include="Model\MoviesCollection.cs" />
     <Compile Include="Model\Vote.cs" />
