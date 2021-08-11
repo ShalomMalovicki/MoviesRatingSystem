@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MoviesRatingSystem.Model
 {
@@ -31,11 +32,15 @@ namespace MoviesRatingSystem.Model
         #region Function
         public void Initialization(JArray array)
         {
-            foreach (dynamic item in array)
+            Application.Current.Dispatcher.Invoke(delegate
             {
-                // for each token we create & add new Movie instance to the list
-                List.Add(new Movie(item));
-            }
+                foreach (var item in array)
+                {
+                    // for each token we create & add new Movie instance to the list
+                    dynamic token = JObject.Parse(item.ToString());
+                    List.Add(new Movie(token));
+                }
+            });          
         }
 
         public void UpdateRoutine(JArray array)

@@ -44,9 +44,12 @@ namespace MoviesRatingSystem.ViewModel
 
         public void Initialization()
         {
-            var r1 = api.GetMoviesDescrption().Result;
-            JArray array = JObject.Parse(r1);
-            MoviesCollection.Initialization(array);
+            Task.Run(() =>
+            {
+                var r1 = api.GetMoviesDescrption().Result;
+                JArray array = JArray.Parse(r1);
+                MoviesCollection.Initialization(array);
+            });          
         }
 
         public void Routine()

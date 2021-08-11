@@ -27,7 +27,7 @@ namespace MoviesRatingSystem
             InitializeComponent();
             DataContext = mainViewModel;
             SetCollection();
-            //mainViewModel.Start();
+            mainViewModel.Start();
         }
 
         private void SetCollection()
