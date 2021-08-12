@@ -64,6 +64,7 @@
     <Compile Include="Model\MoviesCollection.cs" />
     <Compile Include="Model\Vote.cs" />
     <Compile Include="Resources\ConvertFunc.cs" />
+    <Compile Include="Resources\DelegateCommandEmpty.cs" />
     <Compile Include="Resources\OnePropertyChanged.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace MoviesRatingSystem.ViewModel
 {
@@ -18,6 +19,7 @@ namespace MoviesRatingSystem.ViewModel
         private bool serverStatus;
         private DateTime lastReceive;
         private MoviesCollection moviesCollection;
+        private ICommand serverStatusCommand;
         #endregion Private Fields
 
         #region Ctor       
@@ -25,6 +27,7 @@ namespace MoviesRatingSystem.ViewModel
         {
             moviesCollection = new MoviesCollection();
             api = new MovieRestApi();
+            serverStatusCommand = new DelegateCommandEmpty(ServerStatusCommandExecute);
         }
         #endregion Ctor
 
@@ -32,6 +35,8 @@ namespace MoviesRatingSystem.ViewModel
         public DateTime LastReceive { get => lastReceive; set => SetField(ref lastReceive, value); }
         public bool ServerStatus { get => serverStatus; set => SetField(ref serverStatus  , value); }
         public MoviesCollection MoviesCollection { get => moviesCollection; set => SetField(ref moviesCollection  , value); }
+        public ICommand ServerStatusCommand { get => serverStatusCommand; set => serverStatusCommand = value; }
+
         #endregion Properties
 
         #region Function
@@ -67,6 +72,19 @@ namespace MoviesRatingSystem.ViewModel
 
                 } while (serverStatus) ;
             });
+        }
+
+        public void ServerStatusCommandExecute()
+        {
+            if (ServerStatus)
+            {
+                ServerStatus = false;
+            }
+            else
+            {
+                ServerStatus = true;
+                Routine();
+            }
         }
         #endregion Function
     }
