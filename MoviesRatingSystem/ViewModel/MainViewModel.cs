@@ -42,8 +42,7 @@ namespace MoviesRatingSystem.ViewModel
 
         #region Function
         public void Start()
-        {
-            ServerStatus = true;
+        {            
             LastReceive = ConvertFunc.ConvertToFullDateTimeWithSeconds("06/01/2021 09:57:51");
             Initialization();
             Routine();
@@ -51,18 +50,48 @@ namespace MoviesRatingSystem.ViewModel
 
         public void Initialization()
         {
-            Task.Run(() =>
+            Task.Run( () =>
             {
-                var r1 = api.GetMoviesDescrption().Result;
-                JArray array = JArray.Parse(r1);
-                MoviesCollection.Initialization(array);
+                try
+                {
+                    var r1 = api.GetMoviesDescrption().Result;
+                    ServerStatus = true;
+                    JArray array = JArray.Parse(r1);
+                    MoviesCollection.Initialization(array);
+                }
+                catch (Exception)
+                {
+                    ServerStatus = false;
+                }              
             });          
         }
 
         public void Routine()
         {
             Task.Run(async () =>
-            {             
+            {
+                while (serverStatus)
+                {
+                    await Task.Delay(1000);
+                    try
+                    {
+                        var r2 = api.GetOnlineVotes(lastReceive).Result;
+                        JArray array = JArray.Parse(r2);
+                        if (array.Count > 0)
+                            LastReceive = MoviesCollection.UpdateRoutine(array);  // For the next update round we will return the latest update date as the requirements
+                    }
+                    catch (Exception)
+                    {
+                        ServerStatus = false;
+                    }                 
+                } 
+            });
+        }
+
+        public void PingConnection()
+        {
+            Task.Run(async () =>
+            {
                 do
                 {
                     await Task.Delay(1000);
@@ -71,7 +100,7 @@ namespace MoviesRatingSystem.ViewModel
                     if (array.Count > 0)
                         LastReceive = MoviesCollection.UpdateRoutine(array);  // For the next update round we will return the latest update date as the requirements
 
-                } while (serverStatus) ;
+                } while (serverStatus);
             });
         }
 
