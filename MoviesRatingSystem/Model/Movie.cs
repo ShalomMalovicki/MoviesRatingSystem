@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MoviesRatingSystem.Model
 {
-    public class Movie : OnePropertyChanged
+    public class Movie : GenericPropertyChanged
     {
         #region Private Fields
         private long movieId;

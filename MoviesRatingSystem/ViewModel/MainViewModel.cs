@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace MoviesRatingSystem.ViewModel
 {
-    class MainViewModel : OnePropertyChanged
+    class MainViewModel : GenericPropertyChanged
     {
         #region Private Fields
         MovieRestApi api;

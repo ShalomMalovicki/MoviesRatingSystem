@@ -8,25 +8,25 @@ using System.Threading.Tasks;
 
 namespace MoviesRatingSystem.Resources
 {
-    public class OnePropertyChanged : INotifyPropertyChanged
+    // A generic class to facilitate the use call and implementation of INotifyPropertyChanged
+    public class GenericPropertyChanged : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // Use CallerMemberName instead of calling each property individually
         protected void SetField<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
+            // Check whether the value of the property has changed at all
             if (EqualityComparer<T>.Default.Equals(field, value)) return;
             field = value;
-            OnPropertyChanged1(propertyName);
+            OnPropertyChanged(propertyName);
         }
 
-        protected void OnPropertyChanged1(string name)
+        protected void OnPropertyChanged(string name)
         {
             var handle = PropertyChanged;
             if (handle != null)
                 handle.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
-
-    // : OnePropertyChanged
-    // { get; set; }//{ get => ; set => SetField(ref , value); 
 }

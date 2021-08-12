@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace MoviesRatingSystem.Model
 {
-    public class MoviesCollection : OnePropertyChanged
+    public class MoviesCollection : GenericPropertyChanged
     {
         #region Private Fields
         private List<Vote> votesList;

@@ -65,7 +65,7 @@
     <Compile Include="Model\Vote.cs" />
     <Compile Include="Resources\ConvertFunc.cs" />
     <Compile Include="Resources\DelegateCommandEmpty.cs" />
-    <Compile Include="Resources\OnePropertyChanged.cs" />
+    <Compile Include="Resources\GenericPropertyChanged.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="Views\MovieWindow.xaml.cs">
       <DependentUpon>MovieWindow.xaml</DependentUpon>
