@@ -4,30 +4,32 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MovieWindow" Height="140" Width="220">
+         FontSize="14"
+        FontWeight="Bold"
+        Title="MovieWindow" Height="152" Width="350">
     <Grid>
         <Border Style="{StaticResource BorderStyle}" >
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="120" />
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="125" />
+                    <ColumnDefinition Width="205" />
                 </Grid.ColumnDefinitions>
-                
-                <StackPanel  Orientation="Vertical" Grid.Column="0"  Width="150"  HorizontalAlignment="Left">
-                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="MovieId     " />
-                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="MovieDescription     " />
-                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="TotalVotes        "  />
-                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="LastUpdated         "   />
-                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="IsTopRated         "   />
+
+                <StackPanel  Orientation="Vertical" Grid.Column="0"  HorizontalAlignment="Left">
+                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Movie Id" />
+                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Movie Description" />
+                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Total Votes"  />
+                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Last Updated"  />
+                    <TextBlock Style="{StaticResource TextBlockStyle}"  Text="Is Top Rated"  />
 
                 </StackPanel>
 
-                <StackPanel  Orientation="Vertical" Grid.Column="1" Width="80" HorizontalAlignment="Left">
-                    <TextBox Text="{Binding Path=MovieId , UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
-                    <TextBox  Text="{Binding Path=MovieDescription     , UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
-                    <TextBox Text="{Binding Path=TotalVotes        , UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
-                    <TextBox Text="{Binding Path=LastUpdated         , UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
-                    <TextBox Text="{Binding Path=IsSelected        , UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
+                <StackPanel  Orientation="Vertical" Grid.Column="1"  HorizontalAlignment="Left">
+                    <TextBox Text="{Binding Path=MovieId, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
+                    <TextBox  Text="{Binding Path=MovieDescription, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
+                    <TextBox Text="{Binding Path=TotalVotes, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
+                    <TextBox Text="{Binding Path=LastUpdated, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
+                    <TextBox Text="{Binding Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
                 </StackPanel>
             </Grid>
         </Border>
