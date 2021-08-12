@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace MoviesRatingSystem.Views
 {
-    /// <summary>
-    /// Interaction logic for MovieWindow.xaml
-    /// </summary>
+    // A floating window that display on line information about a single movie. The window appears when a movie is double clicked in the grid
     public partial class MovieWindow : Window
     {
         public MovieWindow(Movie _movie)

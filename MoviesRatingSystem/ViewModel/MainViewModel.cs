@@ -11,6 +11,7 @@ using System.Windows.Input;
 
 namespace MoviesRatingSystem.ViewModel
 {
+    // use in MVVM pattern to implementation all functionality individually from view
     class MainViewModel : GenericPropertyChanged
     {
         #region Private Fields
@@ -74,6 +75,7 @@ namespace MoviesRatingSystem.ViewModel
             });
         }
 
+        // MVVM pattern
         public void ServerStatusCommandExecute()
         {
             if (ServerStatus)

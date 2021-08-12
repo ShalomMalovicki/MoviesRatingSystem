@@ -8,9 +8,7 @@ using System.Windows.Input;
 
 namespace MoviesRatingSystem
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    // Application Main UI
     public partial class MainWindow : Window
     {
         MainViewModel mainViewModel = new MainViewModel();
