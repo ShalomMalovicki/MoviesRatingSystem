@@ -59,7 +59,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Converter\BooleanToBrushConverter.cs" />
+    <Compile Include="Converter\BooleanToStringConverter.cs" />
     <Compile Include="Data\MovieRestApi.cs" />
     <Compile Include="Model\MoviesCollection.cs" />
     <Compile Include="Model\Vote.cs" />
