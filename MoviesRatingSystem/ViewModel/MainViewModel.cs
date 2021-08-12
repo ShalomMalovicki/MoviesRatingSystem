@@ -43,7 +43,7 @@ namespace MoviesRatingSystem.ViewModel
         public void Start()
         {
             ServerStatus = true;
-            LastReceive = DateTime.Now.AddSeconds(-1);
+            LastReceive = ConvertFunc.ConvertToFullDateTimeWithSeconds("06/01/2021 09:57:51");
             Initialization();
             Routine();
         }
