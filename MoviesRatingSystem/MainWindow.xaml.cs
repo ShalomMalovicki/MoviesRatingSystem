@@ -1,5 +1,6 @@
 ﻿using MoviesRatingSystem.Model;
 using MoviesRatingSystem.ViewModel;
+using MoviesRatingSystem.Views;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -51,7 +52,9 @@ namespace MoviesRatingSystem
         {
             DataGridRow row = sender as DataGridRow;
             Movie movie = row.DataContext as Movie;
-            MessageBox.Show($"{movie}");
+            //MessageBox.Show($"{movie}");
+            Window win = new MovieWindow(movie);
+            win.Show();
         }
     }
 }
