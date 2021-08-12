@@ -1,8 +1,6 @@
-﻿using MoviesRatingSystem.Model;
+﻿
 using MoviesRatingSystem.ViewModel;
-using MoviesRatingSystem.Views;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 
 
@@ -21,10 +19,7 @@ namespace MoviesRatingSystem
        
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            DataGridRow row = sender as DataGridRow;
-            Movie movie = row.DataContext as Movie;
-            Window win = new MovieWindow(movie);
-            win.Show();
+            mainViewModel.Row_DoubleClick(sender);
         }
     }
 }

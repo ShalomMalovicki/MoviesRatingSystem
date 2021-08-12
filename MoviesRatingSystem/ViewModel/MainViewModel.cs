@@ -1,12 +1,12 @@
 ﻿using MoviesRatingSystem.Data;
 using MoviesRatingSystem.Model;
 using MoviesRatingSystem.Resources;
+using MoviesRatingSystem.Views;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace MoviesRatingSystem.ViewModel
@@ -87,6 +87,15 @@ namespace MoviesRatingSystem.ViewModel
                 ServerStatus = true;
                 Routine();
             }
+        }
+
+        // MVVM pattern
+        public void Row_DoubleClick(object sender)
+        {
+            DataGridRow row = sender as DataGridRow;
+            Movie movie = row.DataContext as Movie;
+            Window win = new MovieWindow(movie);
+            win.Show();
         }
         #endregion Function
     }
