@@ -18,36 +18,9 @@ namespace MoviesRatingSystem
         {
             InitializeComponent();
             DataContext = mainViewModel;
-            SetCollection();
             mainViewModel.Start();
         }
-
-        private void SetCollection()
-        {
-            dataGrid_MoviesCollection.ItemsSource = mainViewModel.MoviesCollection.MovieList;
-            dataGrid_MoviesCollection.AutoGenerateColumns = true;
-            dataGrid_MoviesCollection.AutoGeneratingColumn += dataGrid_AutoGeneratingColumn;
-            //dataGrid_MoviesCollection.Columns.Add(new GridNumericColumn() { MappingName = "SumAmount", HeaderText = "Bid Total", NumberDecimalDigits = 0, Width = 100, TextAlignment = TextAlignment.Center });
-            //dataGrid_MoviesCollection.Columns.Add(new GridNumericColumn() { MappingName = "Amount", HeaderText = "Bid Size", NumberDecimalDigits = 0, Width = 100, TextAlignment = TextAlignment.Center });
-            //dataGrid_MoviesCollection.Columns.Add(new GridNumericColumn()
-            //{
-            //    MappingName = "Price",
-            //    HeaderText = "Bid Price",
-            //    NumberDecimalDigits = mainViewModel.SettingsViewModel.OrderBookDecimal,
-            //    Width = 100
-            //    ,
-            //    CellStyleSelector = new BidCellStyleSelector(),
-            //    TextAlignment = TextAlignment.Center
-            //});
-        }
-        private void dataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
-        {
-            if ((string)e.Column.Header == "IsSelected")
-            {
-                e.Cancel = true;
-            }
-        }
-
+       
         private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
         {
             DataGridRow row = sender as DataGridRow;

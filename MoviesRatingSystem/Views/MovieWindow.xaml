@@ -28,7 +28,7 @@
                     <TextBox Text="{Binding Path=MovieId, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
                     <TextBox  Text="{Binding Path=MovieDescription, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
                     <TextBox Text="{Binding Path=TotalVotes, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
-                    <TextBox Text="{Binding Path=LastUpdated, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
+                    <TextBox Text="{Binding Path=LastUpdated, UpdateSourceTrigger=PropertyChanged, StringFormat=dd/MM/yyyy HH:mm:ss.fff}" Style="{StaticResource TextBoxStyle}" />
                     <TextBox Text="{Binding Path=IsSelected, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxStyle}" />
                 </StackPanel>
             </Grid>
