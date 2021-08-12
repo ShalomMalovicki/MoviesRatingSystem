@@ -32,8 +32,9 @@
                 </Grid.RowDefinitions>
             
             <StackPanel  Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <CheckBox Margin="4,5,5,0" Padding="5,-3,2,2" IsChecked="{Binding Path=ServerStatus, UpdateSourceTrigger=PropertyChanged }" Content="Server Status" Background="{Binding Path=ServerStatus, Converter={StaticResource booleanToBrushConverter}}" />
-                    <Button x:Name="Connect" Command="{Binding Path=DataContext.ServerStatusCommand,ElementName=Connect}" Content="{Binding Path=ServerStatus, Converter={StaticResource booleanToStringConverter}}" Margin="2" Padding="2,-1,2,2" FontWeight="Bold" Width="100"/>
+                    <Button x:Name="Connect" Command="{Binding Path=DataContext.ServerStatusCommand,ElementName=Connect}" Content="{Binding Path=ServerStatus, Converter={StaticResource booleanToStringConverter}}" Margin="-70,2,10,2" Padding="2,-1,2,2" FontWeight="Bold" Width="100"/>
+                    <TextBlock  Padding="3" Text="Server Status" TextAlignment="Center" />
+                    <CheckBox Margin="4"  IsChecked="{Binding Path=ServerStatus, UpdateSourceTrigger=PropertyChanged }" Content="" Background="{Binding Path=ServerStatus, Converter={StaticResource booleanToBrushConverter}}" Style="{StaticResource CircleCheckbox}"/>
                 </StackPanel>
 
             <StackPanel  Grid.Row="1" Orientation="Horizontal"  HorizontalAlignment="Center">
