@@ -64,7 +64,15 @@ namespace MoviesRatingSystem.Model
                     movie.LastUpdated = votesList.Where(x => x.ItemId == movie.MovieId).Max(item => item.GeneratedTime);
                 }
             }
+            
             MostVotes = movieList.Max(item => item.TotalVotes);
+            foreach (Movie movie in MovieList)
+            {
+                if (movie.TotalVotes == MostVotes)
+                    movie.IsSelected = true;
+                else
+                    movie.IsSelected = false;
+            }
             return movieList.Max(item => item.LastUpdated);
         }
         #endregion Function

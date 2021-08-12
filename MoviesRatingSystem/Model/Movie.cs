@@ -1,6 +1,7 @@
 ﻿using MoviesRatingSystem.Resources;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace MoviesRatingSystem.Model
         private string movieDescription;
         private int totalVotes;
         private DateTime lastUpdated;
+        private bool isSelected;
         #endregion Private Fields
 
         #region Ctor
@@ -30,6 +32,8 @@ namespace MoviesRatingSystem.Model
         public string MovieDescription { get => movieDescription; set => SetField(ref movieDescription, value); }
         public int TotalVotes { get => totalVotes; set => SetField(ref totalVotes, value); }
         public DateTime LastUpdated { get => lastUpdated; set => SetField(ref lastUpdated, value); }
+        [Display(AutoGenerateField = false)]
+        public bool IsSelected { get => isSelected; set => SetField(ref isSelected , value); }       
         #endregion Properties
 
         #region Function
