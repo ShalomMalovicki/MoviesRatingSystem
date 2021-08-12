@@ -7,17 +7,18 @@
         mc:Ignorable="d"
         FontSize="14"
         FontWeight="Bold"
-        Title="MainWindow" Height="580" Width="495">
+        Title="Movies Rating System" Height="557" Width="495">
     <Window.Resources>
-        <!--<Converter:BooleanToBrushConverter x:Key="booleanToBrushConverter" />-->
         <Converter:BooleanToStringConverter x:Key="booleanToStringConverter" /> 
     </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions >
             <RowDefinition Height="70"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!-- Header -->
         <Border Style="{StaticResource HeaderBorderStyle}" Grid.Row="0" >
             <Grid>
                 <Grid.RowDefinitions >
@@ -38,12 +39,14 @@
             </Grid>
         </Border>
 
+        <!-- Movies Collection -->
         <Border Style="{StaticResource BorderStyle}" Grid.Row="1" >
             <DataGrid x:Name="dataGrid_MoviesCollection"
                       ItemsSource="{Binding MoviesCollection.MovieList}"
                       FontWeight="Bold" 
                       FontSize="14"                     
-                      AutoGenerateColumns="False">
+                      AutoGenerateColumns="False"
+                      CanUserAddRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding MovieId}" Header="Movie Id" Width="70"/>
                     <DataGridTextColumn Binding="{Binding MovieDescription}" Header="Movie Description" />

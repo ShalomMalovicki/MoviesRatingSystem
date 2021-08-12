@@ -25,7 +25,6 @@ namespace MoviesRatingSystem
         {
             DataGridRow row = sender as DataGridRow;
             Movie movie = row.DataContext as Movie;
-            //MessageBox.Show($"{movie}");
             Window win = new MovieWindow(movie);
             win.Show();
         }
