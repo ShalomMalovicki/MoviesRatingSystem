@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MoviesRatingSystem.Model
 {
+    // Used as temporary storage of voting data for segmenting and arranging voting data in MoviesCollection.MovieList 
     public class Vote
     {
         public Vote(dynamic token)

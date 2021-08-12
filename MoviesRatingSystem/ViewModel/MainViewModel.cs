@@ -68,7 +68,7 @@ namespace MoviesRatingSystem.ViewModel
                     var r2 = api.GetOnlineVotes(lastReceive).Result;
                     JArray array = JArray.Parse(r2);
                     if (array.Count > 0)
-                        LastReceive = MoviesCollection.UpdateRoutine(array);
+                        LastReceive = MoviesCollection.UpdateRoutine(array);  // For the next update round we will return the latest update date as the requirements
 
                 } while (serverStatus) ;
             });

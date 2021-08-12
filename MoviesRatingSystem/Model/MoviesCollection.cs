@@ -10,6 +10,7 @@ using System.Windows;
 
 namespace MoviesRatingSystem.Model
 {
+    // For maintaining the list of movie voting data
     public class MoviesCollection : GenericPropertyChanged
     {
         #region Private Fields
@@ -48,6 +49,7 @@ namespace MoviesRatingSystem.Model
 
         public DateTime UpdateRoutine(JArray array)
         {
+            // Used as temporary storage of voting data for segmenting and arranging voting data below
             foreach (var item in array)
             {
                 // for each token we create & add new Vote instance to the list
@@ -55,6 +57,7 @@ namespace MoviesRatingSystem.Model
                 votesList.Add(new Vote(token));
             }
 
+            // Extracting any specific data for each film separately
             foreach (Movie movie in MovieList)
             {
                 Vote checkExsit = votesList.Where(x=> x.ItemId == movie.MovieId).FirstOrDefault();
@@ -64,7 +67,8 @@ namespace MoviesRatingSystem.Model
                     movie.LastUpdated = votesList.Where(x => x.ItemId == movie.MovieId).Max(item => item.GeneratedTime);
                 }
             }
-            
+
+            // Receiving the highest number of votes and marking the above film
             MostVotes = movieList.Max(item => item.TotalVotes);
             foreach (Movie movie in MovieList)
             {
@@ -73,6 +77,8 @@ namespace MoviesRatingSystem.Model
                 else
                     movie.IsSelected = false;
             }
+
+            // For the next update round we will get the latest update date as the requirements
             return movieList.Max(item => item.LastUpdated);
         }
         #endregion Function

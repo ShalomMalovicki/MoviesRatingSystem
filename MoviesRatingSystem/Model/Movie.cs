@@ -19,7 +19,6 @@ namespace MoviesRatingSystem.Model
         #endregion Private Fields
 
         #region Ctor
-        public Movie() { }
         public Movie(dynamic token) 
         {
             MovieId = token.id;
@@ -35,12 +34,5 @@ namespace MoviesRatingSystem.Model
         [Display(AutoGenerateField = false)]
         public bool IsSelected { get => isSelected; set => SetField(ref isSelected , value); }       
         #endregion Properties
-
-        #region Function
-        public override string ToString()
-        {
-            return $"MovieId: {MovieId},\tMovieDescription: {MovieDescription},\tTotalVotes: {TotalVotes},\tLastUpdated: {LastUpdated}";
-        }
-        #endregion Function
     }
 }
